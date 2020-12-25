@@ -60,3 +60,10 @@ functions:
       - http:
           path: notes
           method: get
+
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
