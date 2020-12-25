@@ -2,7 +2,7 @@
   "name": "notes-api",
   "version": "2.2.0",
   "description": "A Node.js starter for Serverless Framework with ES6 and TypeScript support",
-  "main": "handler.js",
+  "main": "create.js",
   "scripts": {
     "test": "serverless-bundle test"
   },

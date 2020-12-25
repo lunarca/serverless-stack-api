@@ -47,10 +47,3 @@ functions:
       - http:
           path: notes
           method: post
-
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: hello
-          method: get
