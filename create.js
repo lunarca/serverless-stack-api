@@ -18,16 +18,16 @@ export async function main(event, _context) {
   };
 
   try {
-    await dynamodb.put(params).promise()
+    await dynamodb.put(params).promise();
 
     return {
       statusCode: 200,
       body: JSON.stringify(params.Item),
-    }
+    };
   } catch (e) {
     return {
       statusCode: 500,
       body: JSON.stringify({error: e.message}),
-    }
+    };
   }
 }
