@@ -16,6 +16,21 @@ provider:
   stage: prod
   region: us-east-2
 
+  environment:
+    tableName: notes
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:Query
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: "arn:aws:dynamodb:us-east-2:912138331994:table/notes"
+
   # To load environment variables externally
   # rename env.example to .env and uncomment
   # the following line. Also, make sure to not
@@ -25,6 +40,14 @@ provider:
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
 
 functions:
+
+  create:
+    handler: create.main
+    events:
+      - http:
+          path: notes
+          method: post
+
   hello:
     handler: handler.hello
     events:
